@@ -35,6 +35,10 @@
     gap: 1rem;
 }
 
+.experience__details > div {
+    margin-right: 0.5rem;
+}
+
 .experience__details-icon {
     margin-top: 6px;
     color: var(--color-primary);
