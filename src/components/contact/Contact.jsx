@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./contact.css";
 import { MdOutlineEmail } from "react-icons/md";
 import { RiMessengerLine } from "react-icons/ri";
 import { FaViber } from "react-icons/fa";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm(
+            "service_zhbi821",
+            "template_pbtond6",
+            form.current,
+            "cThBH5N6X8LwBMf6q"
+        );
+
+        e.target.reset();
+    };
+
     return (
         <section id="contact">
             <h5>Get In Touch</h5>
@@ -42,7 +58,7 @@ const Contact = () => {
                 </div>
                 {/* End of contact options */}
 
-                <form action="">
+                <form ref={form} onSubmit={sendEmail}>
                     <input
                         type="text"
                         name="name"
